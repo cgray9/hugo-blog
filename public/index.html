@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title> This my site yo </title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Didact+Gothic">
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    </head>
+    <body>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1564643837128169',
+              xfbml      : true,
+              version    : 'v2.2'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+
+          $.get("https://graph.facebook.com/me/photos?limit=7&access_token=" + "CAAWPCQgcrekBAHTgEp5bhu0lsSKb39SOjONJRJ0zjUI45u0kAik59uvFg7O9fKy3ZBi91emT1gfIfsZBA1v66d3BY9kuKyYcgKCRI1LuWZCTjQq1is4cqeANyaaO6kWF8rWnZCGkP8ntdZBGvBsokdiUHes9uzbqZBCYzvfjIqnwDx0D6cLgOU", function(response) {
+            var imageUrls = [];
+            response.data.map(function(imageObj) {
+                var url = imageObj.images[0].source;
+                $(".facebook-photos ul").append($("<li/>").append($("<img/>").attr('src', url)));
+            });
+          })
+          
+        </script>
+        <div class="personal-hero">
+            <h1>Colin Gray</h1>
+            <p>Jesus Follower &middot; Husband &middot; Software Engineer</p>
+            <div class="social-info">
+                <ul class="social">
+                    <li>
+                        <a class="github" href="https://github.com/cgray9">Github</a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="https://linkedin.com/pub/colin-gray/41/20a/956/en"/>LinkedIn</a>
+                    </li>
+                    <li>
+                        <a class="mail" href="mailto:colinlloydgray@gmail.com">Github</a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="https://www.facebook.com/colinlgray22">Github</a>
+                    </li>
+                    <li>
+                        <a class="instagram" href="https://instagram.com/clgray33">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="personal-blurb">
+            <h3>This is my place to try <span>new</span> things, to <span>give</span> back and to <span>share</span> things I'm learning and have experienced as a Software Engineer, builder and a Child of God.</h3>
+        </div>
+        <div class="facebook-photos">
+            <ul></ul>
+            <a href="https://facebook.com/colinlgray22">
+                <h3>What I have been up to lately</h3>
+                <p>via facebook</p>
+            </a>
+        </div>
+        <footer>
+    <div class="footer-wrapper">
+        <img class="profile" src="http://www.gravatar.com/avatar/1e737a7b6e1f0afb1d6fef521097400b.png"/>
+        <div class="social-info">
+            <ul class="social">
+                <li>
+                    <a class="github" href="https://github.com/cgray9">Github</a>
+                </li>
+                <li>
+                    <a class="linkedin" href="https://linkedin.com/pub/colin-gray/41/20a/956/en"/>LinkedIn</a>
+                </li>
+                <li>
+                    <a class="mail" href="mailto:colinlloydgray@gmail.com">Github</a>
+                </li>
+                <li>
+                    <a class="facebook" href="https://www.facebook.com/colinlgray22">Github</a>
+                </li>
+                <li>
+                    <a class="instagram" href="https://instagram.com/clgray33">Github</a>
+                </li>
+            </ul>
+        </div>
+        <p class="copyright">&copy; 2015 Colin Gray. Powered by <a href="http://gohugo.io">Hugo</a></p>
+    </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,261 @@
+//@import "bourbon/bourbon";
+
+$primaryColor: #755681;
+$secondaryColor: #59565A;
+$ternaryColor: #2FDDA8;
+
+@mixin social-media-list($size) {
+    .social {
+        margin: 0;
+        text-align: center;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            margin: 0 $size/2.5;
+        }
+
+        li a {
+            width: $size;
+            height: $size;
+            background-position: 0;
+            background-size: 100%;
+            border-radius: 50%;
+            color: transparent;
+            display: block;
+        }
+
+        a:hover {
+            border-color: $ternaryColor;
+            box-shadow: 0 0 15px 0px $ternaryColor;
+            animation: none;
+            
+            &:before {
+              
+                border-color: $ternaryColor;
+                opacity: 0;
+              
+                $multi: 1.6;
+                width: 3em*$multi;
+                height: 3em*$multi;
+                margin-left: -((3em*$multi)/2);
+                margin-top: -((3em*$multi)/2); 
+            }
+        }
+
+        .github {
+            background-image: url('../img/github.svg');
+        }
+        .linkedin {
+            background-image: url('../img/linkedin.svg');
+        }
+        .mail {
+            background-image: url('../img/email.svg');
+        }
+        .facebook {
+            background-image: url('../img/facebook.svg');
+        }
+        .instagram {
+            background-image: url('../img/instagram.svg');
+        }
+    }
+}
+
+body {
+    font-family: 'Roboto', serif;
+    margin:0;
+    
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.personal-hero {
+    background-image: url('../img/aboutHero.jpg');
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding-bottom: 17em;
+
+    h1 {
+        padding-top: 10%;
+        color: #ffffff;
+        margin: 0;
+        font-size: 6em;
+        font-weight: 500;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: $primaryColor;
+        font-size: 1.5em;
+    }
+
+    h1, p {
+        text-align: center;
+    }
+
+    .social-info {
+        @include social-media-list(50px);
+    }
+}
+
+#personal-blurb {
+    background-color: $secondaryColor;
+    text-align: center;
+    height: 200px;
+    width: 100%;
+    box-shadow: 0 20px 30px 24px #000000;
+    font-family: 'Didact Gothic', serif;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+    h3 {
+        position: relative;
+        top: 50%;
+        margin: 0 auto;
+        font-weight: 100;
+        max-width: 980px;
+        color: #ffffff;
+
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        span {
+            color: $ternaryColor;
+        }
+    }
+}
+
+.facebook-photos {
+    margin: 0 auto;
+    position: relative;
+    height: 300px;
+    box-shadow: 0 3px 33px 0px #000000;
+    ul {
+        width: 2256px;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 300px;
+        margin-left: -1110px;
+
+        li {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+        }
+        li img {
+            height: 100%;
+        }
+    }
+    a {
+        display: block;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 300px;
+        z-index: 10;
+        background-color: rgba(103, 90, 136, 0.6);
+
+        h3 {
+            color: #ffffff;
+            font-family: 'Didact Gothic', serif;
+            font-size: 4.5em;
+            font-weight: 100;
+            margin: 0;
+            padding-top: 30px;
+        }
+        p {
+            color: $ternaryColor;
+            font-family: 'Didact Gothic', serif;
+            font-size: 2.5em;
+            font-weight: 100;
+            font-style: italic;
+            margin: 0;
+        }
+    }
+}
+
+
+footer {
+    height: 75px;
+    background-color: $primaryColor;
+    .footer-wrapper {
+        position: relative;
+        top: 60%;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 2em;
+
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        .profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url('http://www.gravatar.com/avatar/1e737a7b6e1f0afb1d6fef521097400b.png');
+            display: inline-block;
+        }
+
+        .social-info, .copyright {
+            display: inline-block;
+            position: relative;
+            bottom: 20px;
+        }
+
+        .social-info {
+            @include social-media-list(25px);
+            bottom: 20px;
+        }
+
+        .copyright {
+            margin: 0;
+            bottom: 15px;
+            color: #ffffff;
+
+            a, a:hover, a:focus {
+                color: #ff4088;
+                text-decoration: none;
+                outline: none;
+                outline: 0;
+            }
+
+
+            a {
+                line-height: 1.1;
+                display: inline-block;
+            }
+            a:after {
+              display: block;
+              content: "";
+              height: 1px;
+              width: 0%;
+              background-color: #ff4088;
+              -webkit-transition: width 0.5s ease;
+              -moz-transition: width 0.5s ease;
+              -ms-transition: width 0.5s ease;
+              transition: width 0.5s ease;
+            }
+
+            a:hover:after, a:focus:after {
+                width: 100%;
+            }
+
+        }
+
+    }
+}
