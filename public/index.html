@@ -8,30 +8,51 @@
     </head>
     <body>
         <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '1564643837128169',
-              xfbml      : true,
-              version    : 'v2.2'
-            });
-          };
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '1564643837128169',
+                    xfbml      : true,
+                    version    : 'v2.2'
+                });
+            };
 
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
 
-          $.get("https://graph.facebook.com/me/photos?limit=7&access_token=" + "CAAWPCQgcrekBAHTgEp5bhu0lsSKb39SOjONJRJ0zjUI45u0kAik59uvFg7O9fKy3ZBi91emT1gfIfsZBA1v66d3BY9kuKyYcgKCRI1LuWZCTjQq1is4cqeANyaaO6kWF8rWnZCGkP8ntdZBGvBsokdiUHes9uzbqZBCYzvfjIqnwDx0D6cLgOU", function(response) {
-            var imageUrls = [];
-            response.data.map(function(imageObj) {
-                var url = imageObj.images[0].source;
-                $(".facebook-photos ul").append($("<li/>").append($("<img/>").attr('src', url)));
-            });
-          })
-          
+            console.log("test");
+            console.log("");
+            var accessToken = ""
+            if ( accessToken != "") {
+                $.get("https://graph.facebook.com/me/photos?limit=7&access_token=" + "", function(response) {
+                    response.data.map(function(imageObj) {
+                        var url = imageObj.images[0].source;
+                        $(".facebook-photos ul").append($("<li/>").append($("<img/>").attr('src', url)));
+                    });
+                })
+            } else {
+                $(document).ready(function() {
+                    console.log("else");
+                    var imageUrls = [
+                        "https://scontent.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/988900_10152663276587341_7461673898953037375_n.jpg?oh=981044dcb9065f0ccbcb6407cd7b9500&oe=55B4E079",
+                        "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10960301_991667147525076_7122739537721226149_o.jpg",
+                        "https://scontent.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10926369_983422088339330_2636508200108818467_n.jpg?oh=3bea031d5cb10c33b98e4c12b052dfe7&oe=5583DC96",
+                        "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10931318_983422085005997_457252312406322502_n.jpg?oh=ea6582d845985a78b47faf004a3f5b7a&oe=5589E95C&__gda__=1433757973_0cfa9f9f9e4706757e48f7ae306d2032",
+                        "https://scontent.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10896920_983422061672666_3308760751823527360_n.jpg?oh=3884842c15b55cfbb44ea57302584159&oe=5585FEE8",
+                        "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10450589_983421738339365_8474466358017628199_n.jpg?oh=e3ce536c700f2f6aca3ce254c596405e&oe=5583087D&__gda__=1434202309_6c549709da8da451d825f4c1319e2c92",
+                        "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10455561_983420291672843_6809162171915494552_n.jpg?oh=3f59e4949c3267fbda8321c783e68539&oe=55776948&__gda__=1434907426_ffcac28b3e2ef8c70d4de12c07ec2bcc"
+                    ]
+                    imageUrls.map(function(url) {
+                        console.log(url);
+                        $(".facebook-photos ul").append($("<li/>").append($("<img/>").attr('src', url)));
+                    });
+                })
+            }
+
         </script>
         <div class="personal-hero">
             <h1>Colin Gray</h1>
