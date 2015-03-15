@@ -1,4 +1,4 @@
 # hugo-blog
 My personal blog powered by Hugo
 
-More info to come...
+Checkout out the site in action: http://cgray9.github.io/hugo-blog/
